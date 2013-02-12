@@ -1,0 +1,101 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+<title>Cooties!</title>
+</head>
+
+<body>
+<div id="container">
+	<p id="test">//</p>
+	<button id="sss">Click</button>
+	<div id="leftPanel">
+		<canvas id="offspringPanel" width="775" height="550"></canvas>
+
+		<div id="bottomBar">
+			<div id="genePanel">
+				<div class="traitBox" id="body">
+					<h3>Body</h3>
+					<div class="alleleBox">
+						<h3>Mom</h3>
+						<button class="momDominant">R</button><br />
+						<button class="momRecessive">r</button>
+					</div>
+					<div class="alleleBox">
+						<h3>Dad</h3>
+						<button class="dadDominant">R</button><br />
+						<button class="dadRecessive">r</button>
+					</div>
+				</div>
+				<div class="traitBox" id="ear">
+					<h3>Ear</h3>
+					<div class="alleleBox">
+						<h3>Mom</h3>
+						<button class="momDominant">W</button><br />
+						<button class="momRecessive">w</button>
+					</div>
+					<div class="alleleBox">
+						<h3>Dad</h3>
+						<button class="dadDominant">W</button><br />
+						<button class="dadRecessive">w</button>
+					</div>
+				</div>
+				<div class="traitBox" id="eyes">
+					<h3>Eyes</h3>
+					<div class="alleleBox">
+						<h3>Mom</h3>
+						<button class="momDominant">P</button><br />
+						<button class="momRecessive">p</button>
+					</div>
+					<div class="alleleBox">
+						<h3>Dad</h3>
+						<button class="dadDominant">P</button><br />
+						<button class="dadRecessive">p</button>
+					</div>
+				</div>
+				<div class="traitBox" id="mouth">
+					<h3>Mouth</h3>
+					<div class="alleleBox">
+						<h3>Mom</h3>
+						<button class="momDominant">L</button><br />
+						<button class="momRecessive">l</button>
+					</div>
+					<div class="alleleBox">
+						<h3>Dad</h3>
+						<button class="dadDominant">L</button><br />
+						<button class="dadRecessive">l</button>
+					</div>
+				</div>
+				<div class="traitBox" id="feet">
+					<h3>Feet</h3>
+					<div class="alleleBox">
+						<h3>Mom</h3>
+						<button class="momDominant">B</button><br />
+						<button class="momRecessive">b</button>
+					</div>
+					<div class="alleleBox">
+						<h3>Dad</h3>
+						<button class="dadDominant">B</button><br />
+						<button class="dadRecessive">b</button>
+					</div>
+				</div>
+
+				
+
+			</div>
+			<div id="controlPanel">
+				<p id="offspringLabel">Offspring</p>
+				<button class="navButton">Previous</button>
+				<button class="navButton" id="next">Next</button>
+				<br />
+				<button class="navButton">Save Cooties</button>
+				<button class="navButton">Load Cooties</button>
+		
+			</div>
+		</div>
+	</div>
+	<div id="rightPanel"></div>
+
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
