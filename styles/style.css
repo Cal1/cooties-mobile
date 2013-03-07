@@ -1,0 +1,97 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+#container {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+#control-panel {
+	width: 552px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#offspringPanel {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#rightPanel {
+	margin-left: auto;
+	margin-right: auto;
+	width: 552px;
+	height: 100px;
+        overflow: auto;
+}
+
+#rightPanel div {
+      
+	float: left;
+        height: 100px;
+        
+}
+/* ---------- GenePanel ---------- */
+#genePanel {
+	width: 552px;
+	height: 214px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.traitBox {
+	border: 1px solid;
+	margin: 10px;
+	float: left;
+}
+
+.alleleBox {
+	border: 1px solid;
+	margin: 5px;
+	padding: 5px;
+}
+
+#body .alleleBox:nth-of-type(1) .ui-btn-text {
+       color: red;
+}
+
+#body .alleleBox:nth-of-type(2) .ui-btn-text {
+       color: blue;
+}
+
+#ear .alleleBox:nth-of-type(2) .ui-btn-text {
+       color: gray;
+}
+
+#ear .alleleBox:nth-of-type(1) .ui-btn-text {
+       color: gray;
+}
+#eyes .alleleBox:nth-of-type(1) .ui-btn-text {
+        color: purple;
+}
+
+#eyes .alleleBox:nth-of-type(2) .ui-btn-text {
+        color: yellow;
+}
+#mouth .alleleBox:nth-of-type(1) .ui-btn-text {
+        color: green;
+}
+
+#mouth .alleleBox:nth-of-type(2) .ui-btn-text {
+        color: orange;
+}
+
+
+#feet .alleleBox:nth-of-type(1) .ui-btn-text {
+        color: brown;
+}
+
+#feet .alleleBox:nth-of-type(2) .ui-btn-text {
+        color: green;
+}
