@@ -44,7 +44,7 @@ var loadOffspring = function(seq) {
     offspringImg = new Image();
     offspringImg.src = 'images/' + imgName + '.png';
     offspringImg.onload = function() {
-        c_context.drawImage(offspringImg, 0, 0);
+        c_context.drawImage(offspringImg, 50, 70);
     };
 };
 
