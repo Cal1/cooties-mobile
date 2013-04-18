@@ -1,151 +1,157 @@
-<html>
+<!doctype HTML>
+<html lang="en">
 <head>
-<link rel="stylesheet" type="text/css" href="styles/style.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+	<link rel="stylesheet" type="text/css" href="styles/style.css" />
 
-<!-- for jquery mobile -->
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-<script src="scripts/cooties.js"></script>
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+	<script src="scripts/scroll/jquery.touchSwipe.min.js"></script>
 
-<title>Cooties!</title>
+	<script src="scripts/views.js"></script>
+	<script src="scripts/cooties.js"></script>
 </head>
-
 <body>
-	<div data-role="header">
-		<a href="#" data-role="button" data-theme="a" data-icon="delete">Cancel</a>
-		<h1>Cooties</h1>
-		<a href="#" data-role="button" data-theme="a" data-icon="check">Save</a>
+<div data-role="header">
+   		<h1>Cooties</h1>
+   	    <a href="#" data-icon="gear" class="ui-btn-right">Debug</a>
+</div>
+<p id="debug"></p>
+<div id="wrapper">
+	<div id="offspring-scroll">
+		<div id="btn1" class="previous"></div>
+		<div id="offspring-list">
+			<ul>
+				<li id="offspring0">
+					<a href="#popupBasic" data-rel="popup" data-transition="pop">
+						<img src="images/RwPLB.png" width="114" height="70"/>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div id="btn2" class="next"></div>
 	</div>
+	<div id="offspring-panel">
+		<div id="previous-button">
+			 <a href="#" data-role="button" data-theme="c" data-corners="false">&lt;</a>
+		</div>
+		<canvas id="offspring-image" width="406" height="400"></canvas>
+		<div id="remove">Remove</div>
 
-<div id="container">
-	<p id="debug">Index:  Sequence:</p>
- 	<div id="leftPanel">
-	<center>	<a href="#" id="back" data-role="button" data-inline="true" data-theme="a" data-icon="back"></a><canvas id="offspringPanel" width="330" height="300"></canvas><a href="#" id="next" data-role="button" data-inline="true" data-theme="a" data-icon="forward"></a></center>
-	<div id="control-panel">
-	
-		
+		<div id="next-button">
+			<a href="#" id="test" data-role="button" data-theme="c" data-corners="false">&gt;</a>	
+		</div>
 	</div>
-	
-	<div id="rightPanel"></div>
-	<div id="genePanel">
-	<div class="traitBox" id="body">
-	<h5>Body</h5>
-	<div class="alleleBox" id="mom">
-	<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" >
-		<legend>Mom</legend>
-		<input type="radio" name="genebutton-body-mom"  id="momDominant-body" value="R" />
-		<label for="momDominant-body">R</label>
-		<input type="radio" name="genebutton-body-mom" id="momRecessive-body" value="r" />
-		<label for="momRecessive-body">r</label>
+	<div id="gene-panel">
+		<div class="column">
+			<div class="column-header">
+				<span></span>
+			</div>
+			<div class="parent-row">
+				<span>Mom</span>
+			</div>
+			<div class="parent-row">
+				<span>Dad</span>
+			</div>
+		</div>
 
-	</fieldset>
+		<div class="column" id="body">
+			<div class="column-header">
+				<span>Body</span>
+			</div>
+			<div class="allele-box" >
+				<fieldset class="mom-alleles" data-role="controlgroup" data-type="horizontal" data-mini="true" >
+					<input type="radio" name="genebutton-body-mom"  id="momDominant-body" value="R" />
+					<label for="momDominant-body">R</label>
+					<input type="radio" name="genebutton-body-mom" id="momRecessive-body" value="r" />
+					<label for="momRecessive-body">r</label>
+				</fieldset>
+				<fieldset class="dad-alleles" data-role="controlgroup" data-type="horizontal" data-mini="true" >
+					<input type="radio" name="genebutton-body-dad"  id="dadDominant-body" value="R" />
+					<label for="dadDominant-body">R</label>
+					<input type="radio" name="genebutton-body-dad" id="dadRecessive-body" value="r" />
+					<label for="dadRecessive-body">r</label>
+				</fieldset>
+			</div>
+		</div>
+		<div class="column" id="ear">
+			<div class="column-header">
+				<span>Ear</span>
+			</div>
+			<div class="allele-box" >
+				<fieldset class="mom-alleles" data-role="controlgroup" data-type="horizontal" data-mini="true" >
+					<input type="radio" name="genebutton-ear-mom"  id="momDominant-ear" value="W" />
+					<label for="momDominant-ear">W</label>
+					<input type="radio" name="genebutton-ear-mom" id="momRecessive-ear" value="w" />
+					<label for="momRecessive-ear">w</label>
+				</fieldset>
+				<fieldset class="dad-alleles" data-role="controlgroup" data-type="horizontal" data-mini="true" >
+					<input type="radio" name="genebutton-ear-dad"  id="dadDominant-ear" value="W" />
+					<label for="dadDominant-ear">W</label>
+					<input type="radio" name="genebutton-ear-dad" id="dadRecessive-ear" value="w" />
+					<label for="dadRecessive-ear">w</label>
+				</fieldset>
+			</div>
+		</div>
+		<div class="column" id="eyes">
+			<div class="column-header">
+				<span>Eyes</span>
+			</div>
+			<div class="allele-box" >
+				<fieldset class="mom-alleles" data-role="controlgroup" data-type="horizontal" data-mini="true" >
+					<input type="radio" name="genebutton-eyes-mom"  id="momDominant-eyes" value="P" />
+					<label for="momDominant-eyes">P</label>
+					<input type="radio" name="genebutton-eyes-mom" id="momRecessive-eyes" value="p" />
+					<label for="momRecessive-eyes">p</label>
+				</fieldset>
+				<fieldset class="dad-alleles" data-role="controlgroup" data-type="horizontal" data-mini="true" >
+					<input type="radio" name="genebutton-eyes-dad"  id="dadDominant-eyes" value="P" />
+					<label for="dadDominant-eyes">P</label>
+					<input type="radio" name="genebutton-eyes-dad" id="dadRecessive-eyes" value="p" />
+					<label for="dadRecessive-eyes">p</label>
+				</fieldset>
+			</div>
+		</div>
+		<div class="column" id="mouth">
+			<div class="column-header">
+				<span>Mouth</span>
+			</div>
+			<div class="allele-box" >
+				<fieldset class="mom-alleles" data-role="controlgroup" data-type="horizontal" data-mini="true" >
+					<input type="radio" name="genebutton-mouth-mom"  id="momDominant-mouth" value="L" />
+					<label for="momDominant-mouth">L</label>
+					<input type="radio" name="genebutton-mouth-mom" id="momRecessive-mouth" value="l" />
+					<label for="momRecessive-mouth">l</label>
+				</fieldset>
+				<fieldset class="dad-alleles" data-role="controlgroup" data-type="horizontal" data-mini="true" >
+					<input type="radio" name="genebutton-mouth-dad"  id="dadDominant-mouth" value="L" />
+					<label for="dadDominant-mouth">L</label>
+					<input type="radio" name="genebutton-mouth-dad" id="dadRecessive-mouth" value="l" />
+					<label for="dadRecessive-mouth">l</label>
+				</fieldset>
+			</div>
+		</div>
+		<div class="column" id="feet">
+			<div class="column-header">
+				<span>Feet</span>
+			</div>
+			<div class="allele-box" >
+				<fieldset class="mom-alleles" data-role="controlgroup" data-type="horizontal" data-mini="true" >
+					<input type="radio" name="genebutton-feet-mom"  id="momDominant-feet" value="B" />
+					<label for="momDominant-feet">B</label>
+					<input type="radio" name="genebutton-feet-mom" id="momRecessive-feet" value="b" />
+					<label for="momRecessive-feet">b</label>
+				</fieldset>
+				<fieldset class="dad-alleles" data-role="controlgroup" data-type="horizontal" data-mini="true" >
+					<input type="radio" name="genebutton-feet-dad"  id="dadDominant-feet" value="B" />
+					<label for="dadDominant-feet">B</label>
+					<input type="radio" name="genebutton-feet-dad" id="dadRecessive-feet" value="b" />
+					<label for="dadRecessive-feet">b</label>
+				</fieldset>
+			</div>
+		</div>
 	</div>
-	<div class="alleleBox">
-	<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-		<legend>Dad</legend>
-		<input type="radio" name="genebutton-body-dad" id="dadDominant-body" value="R" />
-		<label for="dadDominant-body">R</label>
-		<input type="radio" name="genebutton-body-dad" id="dadRecessive-body" value="r" />
-		<label for="dadRecessive-body">r</label>
-
-	</fieldset>
-	</div>
-	</div>
-	<div class="traitBox" id="ear">
-	<h5>Ear</h5>
-	<div class="alleleBox">
-	<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-		<legend>Mom</legend>
-		<input type="radio" name="genebutton-ear-mom" id="momDominant-ear" value="W" />
-		<label for="momDominant-ear">W</label>
-		<input type="radio" name="genebutton-ear-mom" id="momRecessive-ear" value="w" />
-		<label for="momRecessive-ear">w</label>
-
-	</fieldset>
-	</div>
-	<div class="alleleBox">
-	<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-		<legend>Dad</legend>
-		<input type="radio" name="genebutton-ear-dad" id="dadDominant-ear" value="W" />
-		<label for="dadDominant-ear">W</label>
-		<input type="radio" name="genebutton-ear-dad" id="dadRecessive-ear" value="w" />
-		<label for="dadRecessive-ear">w</label>
-
-	</fieldset>
-	</div>
-	</div>
-	<div class="traitBox" id="eyes">
-	<h5>Eyes</h5>
-	<div class="alleleBox">
-	<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-		<legend>Mom</legend>
-		<input type="radio" name="genebutton-eyes-mom" id="momDominant-eyes" value="P" />
-		<label for="momDominant-eyes">P</label>
-		<input type="radio" name="genebutton-eyes-mom" id="momRecessive-eyes" value="p" />
-		<label for="momRecessive-eyes">p</label>
-
-	</fieldset>
-	</div>
-	<div class="alleleBox">
-	<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-		<legend>Dad</legend>
-		<input type="radio" name="genebutton-eyes-dad" id="dadDominant-eyes" value="P" />
-		<label for="dadDominant-eyes">P</label>
-		<input type="radio" name="genebutton-eyes-dad" id="dadRecessive-eyes" value="p" />
-		<label for="dadRecessive-eyes">p</label>
-
-	</fieldset>
-
-	</div>
-	</div>
-	<div class="traitBox" id="mouth">
-	<h5>Mouth</h5>
-	<div class="alleleBox">
-	<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-		<legend>Mom</legend>
-		<input type="radio" name="genebutton-mouth-mom" id="momDominant-mouth" value="L" />
-		<label for="momDominant-mouth">L</label>
-		<input type="radio" name="genebutton-mouth-mom" id="momRecessive-mouth" value="l" />
-		<label for="momRecessive-mouth">l</label>
-
-	</fieldset>
-	</div>
-	<div class="alleleBox">
-	<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-		<legend>Dad</legend>
-		<input type="radio" name="genebutton-mouth-dad" id="dadDominant-mouth" value="L" />
-		<label for="dadDominant-mouth">L</label>
-		<input type="radio" name="genebutton-mouth-dad" id="dadRecessive-mouth" value="l" />
-		<label for="dadRecessive-mouth">l</label>
-
-	</fieldset>
-	</div>
-	</div>
-	<div class="traitBox" id="feet">
-	<h5>Feet</h5>
-	<div class="alleleBox">
-	<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-		<legend>Mom</legend>
-		<input type="radio" name="genebutton-feet-mom" id="momDominant-feet" value="B" />
-		<label for="momDominant-feet">B</label>
-		<input type="radio" name="genebutton-feet-mom" id="momRecessive-feet" value="b" />
-		<label for="momRecessive-feet">b</label>
-
-	</fieldset>
-	</div>
-	<div class="alleleBox">
-	<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-		<legend>Dad</legend>
-		<input type="radio" name="genebutton-feet-dad" id="dadDominant-feet" value="B" />
-		<label for="dadDominant-feet">B</label>
-		<input type="radio" name="genebutton-feet-dad" id="dadRecessive-feet" value="b" />
-		<label for="dadRecessive-feet">b</label>
-
-	</fieldset>
-	</div>
-	</div>
-	</div>
-	</div>
+</div>
 </body>
 </html>

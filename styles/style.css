@@ -1,97 +1,162 @@
 * {
 	margin: 0;
 	padding: 0;
+	font-family: verdana;	
 }
 
+li {
+	list-style-type: none;
+}
 
-#container {
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
+#wrapper {
+	width: 610px;
+	margin: auto;
+	white-space: nowrap;
+	overflow: hidden;
 
 }
 
-#control-panel {
-	width: 552px;
-	margin-left: auto;
-	margin-right: auto;
-}
+/********** GenePanel **********/
 
-#offspringPanel {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#rightPanel {
-	margin-left: auto;
-	margin-right: auto;
-	width: 552px;
-	height: 100px;
-        overflow: auto;
-}
-
-#rightPanel div {
-      
+#gene-panel {
+	margin: auto;
+	display: inline;
 	float: left;
-        height: 100px;
-        
 }
-/* ---------- GenePanel ---------- */
-#genePanel {
-	width: 552px;
-	height: 214px;
-	margin-left: auto;
-	margin-right: auto;
+
+.parent-row {
+	height: 50px;
+	line-height: 50px;
 	text-align: center;
 }
 
-.traitBox {
-	border: 1px solid;
-	margin: 10px;
+.column {
+	width: 100px;
+	float: left;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
+}
+
+.column-header {
+	height: 20px;
+	text-align: center;
+	border-bottom: 1px solid;
+}
+
+.mom-alleles, .dad-alleles {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+#feet {
+	border-right: 1px solid;
+}
+
+.ui-controlgroup.ui-mini, fieldset.ui-controlgroup.ui-mini {
+	margin: 0;
+}
+/**********  **********/
+#offspring-panel {
+	width: 610px;
+	height: 400px;
+}
+
+#previous-button .ui-btn, #next-button .ui-btn {
+	width: 100px;
+	height: 400px;
+	margin: 0;
+}
+
+
+#previous-button, #next-button  {
+	line-height: 400px;
+}
+#previous-button {
 	float: left;
 }
 
-.alleleBox {
+#next-button {
+	float: right;
+
+}
+/*
+#image {
+	width: 406px;
+	height: 400px;
+	float: left;
+	background-image: url('../images/RWPLB.png');
+	background-repeat: no-repeat;
+	background-position: center;
+
+}
+*/
+#offspring-image {
+	float: left;
+}
+
+#remove {
+
+}
+
+
+/********** Offspring List **********/
+
+
+#offspring-scroll {
+	height: 75px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+#offspring-list {
+	width: 570px;
+	height: 75px;
+	overflow: hidden;
+	float: left;
+}
+
+#offspring-list ul{
+	height: 75px;
+}
+#offspring-list li {
+	float: left;
+	width: 114px;
+}
+
+#btn1, #btn2 {
+	width: 20px;
+	height: 75px;
+	background-color: gray;
+	float: left;
+}
+
+
+.popup p span {
+	padding: 1px;
+	font-size: 20px;
 	border: 1px solid;
-	margin: 5px;
-	padding: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: gray;
 }
 
-#body .alleleBox:nth-of-type(1) .ui-btn-text {
-       color: red;
+.popup .allele-label {
+	margin-top: 200px;
 }
 
-#body .alleleBox:nth-of-type(2) .ui-btn-text {
-       color: blue;
+.popup {
+	width: 300px;
+	background-image: url('../images/RWPLB.png');
+	background-repeat: no-repeat;
+	height: 264px;
+
 }
 
-#ear .alleleBox:nth-of-type(2) .ui-btn-text {
-       color: gray;
+.cootie-hover {
+	background-color: gray;
 }
 
-#ear .alleleBox:nth-of-type(1) .ui-btn-text {
-       color: gray;
-}
-#eyes .alleleBox:nth-of-type(1) .ui-btn-text {
-        color: purple;
-}
-
-#eyes .alleleBox:nth-of-type(2) .ui-btn-text {
-        color: yellow;
-}
-#mouth .alleleBox:nth-of-type(1) .ui-btn-text {
-        color: green;
-}
-
-#mouth .alleleBox:nth-of-type(2) .ui-btn-text {
-        color: orange;
-}
-
-
-#feet .alleleBox:nth-of-type(1) .ui-btn-text {
-        color: brown;
-}
-
-#feet .alleleBox:nth-of-type(2) .ui-btn-text {
-        color: green;
+.remove-hover {
+	background-color: red;
 }
