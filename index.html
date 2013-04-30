@@ -1,43 +1,77 @@
-<!doctype HTML>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
-	<link rel="stylesheet" type="text/css" href="styles/style.css" />
 
-	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-	<script src="scripts/scroll/jquery.touchSwipe.min.js"></script>
+<script src="http://underscorejs.org/underscore-min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://backbonejs.org/backbone-min.js"></script>
 
-	<script src="scripts/views.js"></script>
-	<script src="scripts/cooties.js"></script>
+<script src="scripts/models.js"></script>
+<link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script src="scripts/jquery.csv-0.71.min.js"></script>
+<script>
+	function setSaveFile(contents, file_name, mime_type) {
+			var a = document.getElementById('save');
+			mime_type = mime_type || 'application/octet-stream';
+			if (file_name) a.setAttribute('download', file_name);
+			a.href = 'data:'+ mime_type +';base64,'+ btoa(contents || '');
+	}
+	function readFile(file, callback){
+	    var reader = new FileReader();
+	    reader.onload = callback;
+	    reader.readAsText(file);
+	}
+
+	function getOffspring(obj) {
+		var offspringSequences = [];
+        var index = 0;
+		for(var row in obj) {
+			offspringSequences.push([""]);
+        	for(var item in obj[row]) {
+        		if(item[0] === "P") {
+        			offspringSequences[index] += obj[row][item];
+        		}
+           	}
+           	index++;
+        }
+        return offspringSequences;
+	}
+</script>
+
+	
+
 </head>
 <body>
-<div data-role="header">
+ <script type="text/template" id="offspring-scroll">
+ 	<li class="offspring-thumbnail"></li>
+</script>
+<div id="app">
+	<div id="wrapper">
+	<div data-role="header">
    		<h1>Cooties</h1>
-   	    <a href="#" data-icon="gear" class="ui-btn-right">Debug</a>
-</div>
-<p id="debug"></p>
-<div id="wrapper">
+   		<a href="#" id="save" data-icon="gear" class="ui-btn-right">Save</a>
+   	    <a href="#" id="load" data-icon="gear" class="ui-btn-left">Load</a>
+   	<!--    <input type="file" id="file_input"/> -->
+	</div>
 	<div id="offspring-scroll">
 		<div id="btn1" class="previous"></div>
 		<div id="offspring-list">
 			<ul>
-				<li id="offspring0">
-					<a href="#popupBasic" data-rel="popup" data-transition="pop">
-						<img src="images/RwPLB.png" width="114" height="70"/>
-					</a>
-				</li>
+				
 			</ul>
 		</div>
-		<div id="btn2" class="next"></div>
-	</div>
+</div>
 	<div id="offspring-panel">
 		<div id="previous-button">
 			 <a href="#" data-role="button" data-theme="c" data-corners="false">&lt;</a>
 		</div>
 		<canvas id="offspring-image" width="406" height="400"></canvas>
-		<div id="remove">Remove</div>
+	<!--	<div id="remove">Remove</div> -->
 
 		<div id="next-button">
 			<a href="#" id="test" data-role="button" data-theme="c" data-corners="false">&gt;</a>	
@@ -151,7 +185,13 @@
 				</fieldset>
 			</div>
 		</div>
+		<ul id="test"></ul>
+		<ul id="images"></ul>
 	</div>
+
+	<p id="debug"></p>
 </div>
+</div>
+
 </body>
 </html>
